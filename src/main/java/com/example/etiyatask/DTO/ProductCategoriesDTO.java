@@ -9,12 +9,8 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class ProductCategoriesDTO {
+public class ProductCategoriesDTO extends ProductDTO{
 
-    private Long productId;
-    private String label;
-    private double price;
-    private int rating;
     private Set<Category> categories = new HashSet<>();
 
 }
