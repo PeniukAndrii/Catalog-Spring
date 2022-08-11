@@ -43,16 +43,8 @@ public class CategoryController {
 
     @GetMapping("/get/{categoryId}")
     @ApiOperation(value = "Get products inside category")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query",
-                    value = "Results page you want to retrieve (0..N)", defaultValue = "0"),
-            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query",
-                    value = "Number of records per page.", defaultValue = "5"),
-            @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
-                    value = "Sorting criteria in the format: property(,asc|desc). ")
-    })
-    public List<Product> getProductsOfCategory(@PathVariable Long categoryId, @ApiIgnore Pageable pageable) {
-        return categoryService.getProductsList(categoryId, pageable);
+    public List<Product> getProductsOfCategory(@PathVariable Long categoryId) {
+        return categoryService.getProductsList(categoryId);
     }
 
     @GetMapping("/findAll")
